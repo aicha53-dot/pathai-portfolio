@@ -16,7 +16,6 @@
       --yellow:#f4c515;
       --dark:#303438;
       --gray:#505458;
-      --white:#ffffff;
       --ink:#111b18;
       --muted:#e8f1ed;
       --shadow:0 26px 70px rgba(0,0,0,.22);
@@ -63,7 +62,11 @@
     }
 
     a{text-decoration:none;color:inherit}
-    img{display:block;max-width:100%}
+
+    img{
+      display:block;
+      max-width:100%;
+    }
 
     .wrap{
       width:var(--container);
@@ -99,9 +102,7 @@
       line-height:1;
     }
 
-    .logo span{
-      color:var(--yellow);
-    }
+    .logo span{color:var(--yellow)}
 
     .brand small{
       display:block;
@@ -265,13 +266,16 @@
     }
 
     .cover{
-      aspect-ratio:1.45/1;
+      padding:18px;
+      background:rgba(255,255,255,.08);
     }
 
     .cover img{
       width:100%;
-      height:100%;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
+      border-radius:24px;
+      background:#dfe9e7;
     }
 
     .dash{
@@ -372,8 +376,13 @@
       gap:18px;
     }
 
-    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .g2{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .g3{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
 
     .card{
       background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(238,244,241,.95));
@@ -424,9 +433,17 @@
       margin-bottom:14px;
     }
 
-    .accent-green{border-left:6px solid var(--green)}
-    .accent-yellow{border-left:6px solid var(--yellow)}
-    .accent-red{border-left:6px solid var(--red)}
+    .accent-green{
+      border-left:6px solid var(--green);
+    }
+
+    .accent-yellow{
+      border-left:6px solid var(--yellow);
+    }
+
+    .accent-red{
+      border-left:6px solid #ef5b6c;
+    }
 
     .tableWrap{
       overflow:auto;
@@ -464,31 +481,51 @@
       font-weight:900;
     }
 
-    .tablePastel tbody tr:nth-child(6n+1) td{background:#fff4df}
-    .tablePastel tbody tr:nth-child(6n+2) td{background:#eef7ef}
-    .tablePastel tbody tr:nth-child(6n+3) td{background:#f1ecfb}
-    .tablePastel tbody tr:nth-child(6n+4) td{background:#edf4ff}
-    .tablePastel tbody tr:nth-child(6n+5) td{background:#f2faed}
+    .tablePastel tbody tr:nth-child(6n+1) td{
+      background:#fff4df;
+    }
+
+    .tablePastel tbody tr:nth-child(6n+2) td{
+      background:#eef7ef;
+    }
+
+    .tablePastel tbody tr:nth-child(6n+3) td{
+      background:#f1ecfb;
+    }
+
+    .tablePastel tbody tr:nth-child(6n+4) td{
+      background:#edf4ff;
+    }
+
+    .tablePastel tbody tr:nth-child(6n+5) td{
+      background:#f2faed;
+    }
 
     .split{
       display:grid;
-      grid-template-columns:1fr 430px;
+      grid-template-columns:1fr;
       gap:22px;
       align-items:start;
     }
 
     .imageFrame{
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.16);
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.18);
       background:rgba(255,255,255,.08);
       box-shadow:var(--shadow);
-      padding:12px;
+      padding:18px;
       overflow:hidden;
+      max-width:1000px;
+      margin:0 auto;
+      width:100%;
     }
 
     .imageFrame img{
       width:100%;
-      border-radius:18px;
+      height:auto;
+      object-fit:contain;
+      border-radius:20px;
+      background:#dfe9e7;
     }
 
     .tabs{
@@ -514,8 +551,13 @@
       border-color:var(--green);
     }
 
-    .tabPanel{display:none}
-    .tabPanel.active{display:block}
+    .tabPanel{
+      display:none;
+    }
+
+    .tabPanel.active{
+      display:block;
+    }
 
     .kpiGrid{
       display:grid;
@@ -553,7 +595,9 @@
       box-shadow:0 14px 28px rgba(0,0,0,.1);
     }
 
-    details+details{margin-top:12px}
+    details+details{
+      margin-top:12px;
+    }
 
     summary{
       cursor:pointer;
@@ -570,37 +614,43 @@
 
     .gallery{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:28px;
     }
 
     .galleryItem{
       position:relative;
-      min-height:260px;
-      border-radius:22px;
+      height:auto;
+      min-height:auto;
+      border-radius:28px;
       overflow:hidden;
       box-shadow:var(--shadow);
-      background:#21262a;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.18);
+      padding:16px;
     }
 
     .galleryItem img{
       width:100%;
-      height:100%;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
+      border-radius:22px;
+      background:#dfe9e7;
       transition:.5s;
     }
 
     .galleryItem:hover img{
-      transform:scale(1.05);
+      transform:scale(1.015);
     }
 
     .galleryItem span{
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      padding:18px;
-      background:linear-gradient(180deg,transparent,rgba(0,0,0,.82));
+      position:relative;
+      display:block;
+      margin-top:12px;
+      padding:12px 14px;
+      background:rgba(0,0,0,.38);
+      border-radius:14px;
+      font-size:1rem;
       font-weight:900;
     }
 
@@ -619,7 +669,9 @@
       font-weight:900;
     }
 
-    .quote span{color:var(--yellow)}
+    .quote span{
+      color:var(--yellow);
+    }
 
     .floating{
       position:fixed;
@@ -660,7 +712,6 @@
 
     @media(max-width:1100px){
       .heroGrid,
-      .split,
       .g3,
       .g2,
       .gallery,
@@ -673,15 +724,35 @@
         grid-template-columns:1fr;
       }
 
-      .links{display:none}
+      .links{
+        display:none;
+      }
     }
 
     @media(max-width:720px){
-      .heroText,.card{padding:19px}
-      h1{font-size:4.2rem}
-      section{padding:42px 0}
-      .label{font-size:1.25rem}
-      table{min-width:760px}
+      .heroText,.card{
+        padding:19px;
+      }
+
+      h1{
+        font-size:4.2rem;
+      }
+
+      section{
+        padding:42px 0;
+      }
+
+      .label{
+        font-size:1.25rem;
+      }
+
+      table{
+        min-width:760px;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -1771,34 +1842,34 @@
       <div class="sectionHead reveal">
         <div>
           <span class="label">VISUELS DU PDF</span>
-          <h2>MÊMES SCHÉMAS, TABLEAUX & PHOTOS</h2>
+          <h2>SCHÉMAS, TABLEAUX & PHOTOS EN GRAND FORMAT</h2>
         </div>
 
         <p class="lead">
-          Cette galerie conserve la cohérence avec le PDF : cover, schéma, calendrier,
-          exemples de posts et storytelling métier.
+          Les visuels importants du projet sont affichés en grand format pour être lisibles :
+          cover, schéma IA, exemples de posts et storytelling métier.
         </p>
       </div>
 
       <div class="gallery reveal">
         <div class="galleryItem">
           <img src="page_1.png" data-fallback="pathai_complete_assets/page_1.png|pn_page_1.jpg|pathai_complete_assets/pn_page_1.jpg" onerror="swapImg(this)" alt="Cover PathAI">
-          <span>Cover / identité visuelle</span>
+          <span>Cover / identité visuelle PathAI</span>
         </div>
 
         <div class="galleryItem">
-          <img src="page_7.png" data-fallback="pathai_complete_assets/page_7.png|pn_page_6.jpg|pathai_complete_assets/pn_page_6.jpg" onerror="swapImg(this)" alt="Schéma IA">
-          <span>Schéma IA</span>
+          <img src="page_7.png" data-fallback="pathai_complete_assets/page_7.png|pn_page_6.jpg|pathai_complete_assets/pn_page_6.jpg" onerror="swapImg(this)" alt="Schéma IA PathAI">
+          <span>Schéma IA : collecte, core AI, outputs</span>
         </div>
 
         <div class="galleryItem">
-          <img src="page_18.png" data-fallback="pathai_complete_assets/page_18.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Exemples de posts">
-          <span>Exemples de posts</span>
+          <img src="page_18.png" data-fallback="pathai_complete_assets/page_18.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Exemples de posts PathAI">
+          <span>Exemples de posts PathAI</span>
         </div>
 
         <div class="galleryItem">
-          <img src="page_19.png" data-fallback="pathai_complete_assets/page_19.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Storytelling métier">
-          <span>Storytelling métier</span>
+          <img src="page_19.png" data-fallback="pathai_complete_assets/page_19.png|pn_page_19.jpg|pathai_complete_assets/pn_page_19.jpg" onerror="swapImg(this)" alt="Storytelling métier PathAI">
+          <span>Storytelling métier : témoignage / vidéo</span>
         </div>
       </div>
     </div>
