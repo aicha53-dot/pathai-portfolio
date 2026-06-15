@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PathAI — Concept & Stratégie de Communication</title>
-  <meta name="description" content="Site interactif PathAI reprenant le contenu du PDF : concept, stratégie de communication, plateformes, KPIs, tendances et perspectives." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,25 +11,25 @@
 
   <style>
     :root{
-      --bg:#505458;
-      --dark:#303438;
       --green:#0b8f67;
       --green2:#00b779;
       --yellow:#f4c515;
+      --dark:#303438;
+      --gray:#505458;
+      --white:#ffffff;
       --ink:#111b18;
-      --white:#fff;
       --muted:#e8f1ed;
-      --red:#ef5b6c;
       --shadow:0 26px 70px rgba(0,0,0,.22);
       --container:min(1220px,calc(100% - 34px));
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
+      font-family:Inter,Arial,sans-serif;
       color:#fff;
       background:
         radial-gradient(circle at 0% 0%,rgba(244,197,21,.18),transparent 24%),
@@ -39,30 +38,32 @@
       overflow-x:hidden;
     }
 
-    body:before{
+    body::before{
       content:"PATHAI";
       position:fixed;
-      top:-5vh;
-      right:-10vw;
+      top:-4vh;
+      right:-8vw;
       z-index:-2;
-      font-family:"Bebas Neue";
+      font-family:"Bebas Neue",sans-serif;
       font-size:28vw;
       color:rgba(255,255,255,.045);
+      pointer-events:none;
     }
 
-    body:after{
+    body::after{
       content:"AI";
       position:fixed;
-      bottom:-8vh;
+      bottom:-10vh;
       left:-3vw;
       z-index:-2;
-      font-family:"Bebas Neue";
+      font-family:"Bebas Neue",sans-serif;
       font-size:38vw;
       color:rgba(244,197,21,.12);
+      pointer-events:none;
     }
 
     a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+    img{display:block;max-width:100%}
 
     .wrap{
       width:var(--container);
@@ -72,8 +73,8 @@
     .nav{
       position:sticky;
       top:0;
-      z-index:50;
-      background:rgba(34,38,42,.86);
+      z-index:100;
+      background:rgba(34,38,42,.88);
       border-bottom:1px solid rgba(255,255,255,.12);
       backdrop-filter:blur(18px);
     }
@@ -93,30 +94,31 @@
     }
 
     .logo{
-      font-family:"Bebas Neue";
+      font-family:"Bebas Neue",sans-serif;
       font-size:2.4rem;
       line-height:1;
-      color:#fff;
     }
 
-    .logo span{color:var(--yellow)}
+    .logo span{
+      color:var(--yellow);
+    }
 
     .brand small{
       display:block;
+      color:#dce8e4;
+      font-weight:800;
       font-size:.76rem;
       letter-spacing:.12em;
       text-transform:uppercase;
-      color:#dce8e4;
-      font-weight:800;
     }
 
     .links{
       display:flex;
+      gap:15px;
       flex-wrap:wrap;
-      gap:16px;
-      font-size:.86rem;
+      font-size:.84rem;
       font-weight:800;
-      color:#eef6f2;
+      color:#edf7f3;
     }
 
     .links a{
@@ -130,20 +132,24 @@
       transform:translateY(-1px);
     }
 
+    section{
+      padding:58px 0;
+    }
+
     .hero{
-      padding:54px 0 70px;
+      padding:56px 0 72px;
     }
 
     .heroGrid{
       display:grid;
-      grid-template-columns:1.06fr .94fr;
+      grid-template-columns:1.08fr .92fr;
       gap:28px;
       align-items:center;
     }
 
-    .heroText,
-    .glass{
-      background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+    .glass,
+    .heroText{
+      background:linear-gradient(155deg,rgba(255,255,255,.11),rgba(255,255,255,.045));
       border:1px solid rgba(255,255,255,.15);
       box-shadow:var(--shadow);
       border-radius:32px;
@@ -151,7 +157,7 @@
     }
 
     .heroText{
-      padding:35px;
+      padding:36px;
     }
 
     .tag{
@@ -162,35 +168,37 @@
       border-radius:999px;
       background:rgba(11,143,103,.22);
       border:1px solid rgba(0,183,121,.34);
-      color:#edfff8;
-      font-weight:900;
       font-size:.82rem;
+      font-weight:900;
+      color:#edfff8;
     }
 
     .tag i{
       width:8px;
       height:8px;
+      border-radius:50%;
       background:#32ffc1;
       box-shadow:0 0 22px #32ffc1;
-      border-radius:50%;
     }
 
     h1{
       margin:22px 0 18px;
-      font-family:"Bebas Neue";
+      font-family:"Bebas Neue",sans-serif;
       font-size:clamp(4rem,10vw,8.2rem);
       line-height:.86;
-      letter-spacing:.01em;
       font-weight:400;
+      letter-spacing:.01em;
     }
 
-    h1 .ai{color:var(--yellow)}
+    h1 span{
+      color:var(--yellow);
+    }
 
     .subtitle{
+      max-width:780px;
+      color:#f1f7f4;
       font-size:1.06rem;
       line-height:1.9;
-      color:#f1f7f4;
-      max-width:760px;
     }
 
     .heroStats{
@@ -209,14 +217,15 @@
 
     .stat b{
       display:block;
-      font-size:1.5rem;
       color:var(--yellow);
+      font-size:1.5rem;
       margin-bottom:4px;
     }
 
     .stat span{
-      font-size:.82rem;
+      display:block;
       color:#eef7f2;
+      font-size:.83rem;
       line-height:1.55;
     }
 
@@ -231,19 +240,18 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
       padding:14px 18px;
       border-radius:999px;
-      border:none;
-      cursor:pointer;
-      font-weight:950;
       background:#fff;
       color:#121918;
+      font-weight:950;
       box-shadow:0 16px 30px rgba(0,0,0,.17);
       transition:.25s;
     }
 
-    .btn:hover{transform:translateY(-2px)}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
 
     .btn.secondary{
       background:rgba(255,255,255,.08);
@@ -258,7 +266,6 @@
 
     .cover{
       aspect-ratio:1.45/1;
-      position:relative;
     }
 
     .cover img{
@@ -286,7 +293,7 @@
 
     .dashGrid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(2,1fr);
       gap:12px;
     }
 
@@ -298,8 +305,8 @@
     }
 
     .dashBox b{
-      display:block;
       color:var(--yellow);
+      display:block;
       margin-bottom:6px;
     }
 
@@ -312,8 +319,8 @@
 
     .progress{
       height:10px;
-      border-radius:999px;
       background:rgba(255,255,255,.12);
+      border-radius:999px;
       overflow:hidden;
       margin-top:10px;
     }
@@ -325,16 +332,12 @@
       background:linear-gradient(90deg,var(--green2),var(--yellow));
     }
 
-    section{
-      padding:58px 0;
-    }
-
     .sectionHead{
       display:flex;
-      justify-content:space-between;
-      gap:22px;
       align-items:end;
+      justify-content:space-between;
       flex-wrap:wrap;
+      gap:22px;
       margin-bottom:25px;
     }
 
@@ -343,19 +346,17 @@
       padding:8px 14px;
       border-radius:8px;
       background:linear-gradient(90deg,var(--green),#00795f);
-      color:#fff;
-      font-family:"Bebas Neue";
+      font-family:"Bebas Neue",sans-serif;
       font-size:1.55rem;
       letter-spacing:.03em;
       box-shadow:0 12px 20px rgba(0,0,0,.18);
     }
 
     h2{
-      font-family:"Bebas Neue";
       margin:14px 0 7px;
+      font-family:"Bebas Neue",sans-serif;
       font-size:clamp(2.4rem,5vw,4.8rem);
       line-height:.9;
-      letter-spacing:.01em;
       font-weight:400;
     }
 
@@ -437,8 +438,8 @@
 
     table{
       width:100%;
-      border-collapse:collapse;
       min-width:900px;
+      border-collapse:collapse;
       background:#fff;
       color:#111;
     }
@@ -446,8 +447,8 @@
     th,td{
       border:1px solid #cbd4d0;
       padding:14px 13px;
-      vertical-align:top;
       text-align:left;
+      vertical-align:top;
       font-size:.88rem;
       line-height:1.58;
     }
@@ -469,25 +470,25 @@
     .tablePastel tbody tr:nth-child(6n+4) td{background:#edf4ff}
     .tablePastel tbody tr:nth-child(6n+5) td{background:#f2faed}
 
-    .imageFrame{
-      overflow:hidden;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.08);
-      box-shadow:var(--shadow);
-      padding:12px;
-    }
-
-    .imageFrame img{
-      border-radius:18px;
-      width:100%;
-    }
-
     .split{
       display:grid;
       grid-template-columns:1fr 430px;
       gap:22px;
       align-items:start;
+    }
+
+    .imageFrame{
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      padding:12px;
+      overflow:hidden;
+    }
+
+    .imageFrame img{
+      width:100%;
+      border-radius:18px;
     }
 
     .tabs{
@@ -561,7 +562,7 @@
       list-style:none;
     }
 
-    details .inside{
+    .inside{
       padding:0 0 18px;
       color:#35433d;
       line-height:1.8;
@@ -658,11 +659,17 @@
     }
 
     @media(max-width:1100px){
-      .heroGrid,.split,.g3,.g2,.gallery,.kpiGrid{
+      .heroGrid,
+      .split,
+      .g3,
+      .g2,
+      .gallery,
+      .kpiGrid{
         grid-template-columns:1fr;
       }
 
-      .heroStats,.dashGrid{
+      .heroStats,
+      .dashGrid{
         grid-template-columns:1fr;
       }
 
@@ -698,6 +705,7 @@
         <a href="#contenu">Contenu</a>
         <a href="#kpi">KPIs</a>
         <a href="#tendances">Tendances</a>
+        <a href="#visuels">Visuels</a>
         <a href="#conclusion">Conclusion</a>
       </div>
     </div>
@@ -709,7 +717,7 @@
         <div class="heroText reveal">
           <div class="tag"><i></i>Site interactif · contenu fidèle au PDF · palette PathAI</div>
 
-          <h1>PATH<span class="ai">AI</span><br>CONCEPT & STRATÉGIE<br>DE COMMUNICATION</h1>
+          <h1>PATH<span>AI</span><br>CONCEPT & STRATÉGIE<br>DE COMMUNICATION</h1>
 
           <p class="subtitle">
             Ce site reprend le contenu du document : introduction, typologie des plateformes numériques,
@@ -722,10 +730,12 @@
               <b>8</b>
               <span>chapitres structurés comme le PDF</span>
             </div>
+
             <div class="stat">
               <b>100%</b>
               <span>contenu repris sans retirer les parties principales</span>
             </div>
+
             <div class="stat">
               <b>UI</b>
               <span>design interactif gris, vert, jaune et high-tech</span>
@@ -740,7 +750,7 @@
 
         <div class="visual reveal">
           <div class="glass cover">
-            <img src="page_1.png" onerror="this.src='pn_page_1.jpg'" alt="Cover PathAI">
+            <img src="page_1.png" data-fallback="pathai_complete_assets/page_1.png|pn_page_1.jpg|pathai_complete_assets/pn_page_1.jpg" onerror="swapImg(this)" alt="Cover PathAI">
           </div>
 
           <div class="glass dash">
@@ -1151,7 +1161,7 @@
       </div>
 
       <div class="imageFrame reveal">
-        <img src="pn_page_6.jpg" alt="Schéma et tableau technique PathAI">
+        <img src="page_7.png" data-fallback="pathai_complete_assets/page_7.png|pn_page_6.jpg|pathai_complete_assets/pn_page_6.jpg" onerror="swapImg(this)" alt="Schéma et tableau technique PathAI">
       </div>
     </div>
   </section>
@@ -1382,7 +1392,7 @@
 
       <div id="calendrier" class="tabPanel">
         <div class="imageFrame">
-          <img src="pn_page_10.jpg" alt="Calendrier éditorial PathAI">
+          <img src="page_17.png" data-fallback="pathai_complete_assets/page_17.png|pn_page_10.jpg|pathai_complete_assets/pn_page_10.jpg" onerror="swapImg(this)" alt="Calendrier éditorial PathAI">
         </div>
       </div>
     </div>
@@ -1509,7 +1519,7 @@
         </div>
 
         <div class="imageFrame">
-          <img src="pn_page_12.jpg" alt="Exemples de posts PathAI">
+          <img src="page_18.png" data-fallback="pathai_complete_assets/page_18.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Exemples de posts PathAI">
         </div>
       </div>
     </div>
@@ -1707,7 +1717,7 @@
       </div>
 
       <div class="imageFrame reveal">
-        <img src="pn_page_17.jpg" alt="Tendances">
+        <img src="page_16.png" data-fallback="pathai_complete_assets/page_16.png|pn_page_17.jpg|pathai_complete_assets/pn_page_17.jpg" onerror="swapImg(this)" alt="Tendances et innovations">
       </div>
     </div>
 
@@ -1765,29 +1775,29 @@
         </div>
 
         <p class="lead">
-          Cette galerie conserve la cohérence avec le PDF : schéma, calendrier,
+          Cette galerie conserve la cohérence avec le PDF : cover, schéma, calendrier,
           exemples de posts et storytelling métier.
         </p>
       </div>
 
       <div class="gallery reveal">
         <div class="galleryItem">
-          <img src="page_1.png" onerror="this.src='pn_page_1.jpg'" alt="Cover">
+          <img src="page_1.png" data-fallback="pathai_complete_assets/page_1.png|pn_page_1.jpg|pathai_complete_assets/pn_page_1.jpg" onerror="swapImg(this)" alt="Cover PathAI">
           <span>Cover / identité visuelle</span>
         </div>
 
         <div class="galleryItem">
-          <img src="page_7.png" onerror="this.src='pn_page_6.jpg'" alt="Schéma">
+          <img src="page_7.png" data-fallback="pathai_complete_assets/page_7.png|pn_page_6.jpg|pathai_complete_assets/pn_page_6.jpg" onerror="swapImg(this)" alt="Schéma IA">
           <span>Schéma IA</span>
         </div>
 
         <div class="galleryItem">
-          <img src="pn_page_10.jpg" alt="Calendrier">
-          <span>Calendrier éditorial</span>
+          <img src="page_18.png" data-fallback="pathai_complete_assets/page_18.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Exemples de posts">
+          <span>Exemples de posts</span>
         </div>
 
         <div class="galleryItem">
-          <img src="page_19.png" onerror="this.src='pn_page_12.jpg'" alt="Storytelling">
+          <img src="page_19.png" data-fallback="pathai_complete_assets/page_19.png|pn_page_12.jpg|pathai_complete_assets/pn_page_12.jpg" onerror="swapImg(this)" alt="Storytelling métier">
           <span>Storytelling métier</span>
         </div>
       </div>
@@ -1854,28 +1864,40 @@
   </footer>
 
   <script>
-    const revealEls = document.querySelectorAll('.reveal');
+    function swapImg(img){
+      const list = (img.dataset.fallback || "").split("|").filter(Boolean);
+      const index = Number(img.dataset.index || 0);
+
+      if(index < list.length){
+        img.dataset.index = index + 1;
+        img.src = list[index];
+      }else{
+        img.onerror = null;
+      }
+    }
+
+    const revealEls = document.querySelectorAll(".reveal");
 
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
-          e.target.classList.add('visible');
+          e.target.classList.add("visible");
         }
       });
     },{threshold:.12});
 
     revealEls.forEach(el=>obs.observe(el));
 
-    const buttons = document.querySelectorAll('.tabBtn');
-    const panels = document.querySelectorAll('.tabPanel');
+    const buttons = document.querySelectorAll(".tabBtn");
+    const panels = document.querySelectorAll(".tabPanel");
 
     buttons.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        buttons.forEach(b=>b.classList.remove('active'));
-        panels.forEach(p=>p.classList.remove('active'));
+      btn.addEventListener("click",()=>{
+        buttons.forEach(b=>b.classList.remove("active"));
+        panels.forEach(p=>p.classList.remove("active"));
 
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
       });
     });
   </script>
